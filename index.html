@@ -7,6 +7,8 @@
         body { font-family: Arial, sans-serif; background: #fafaff; margin: 40px;}
         h1 { color: #e65a2e; }
         .container { max-width: 900px; margin: auto;}
+        .menu { margin-bottom: 20px;}
+        label { font-weight: bold; }
         .funko-list { display: flex; flex-wrap: wrap; gap: 24px; }
         .funko-card {
             background: #fff;
@@ -33,21 +35,39 @@
         <h1>My Funko Pop Shop</h1>
         <p>Looking for Funko Pops at great prices? Browse and email me if you'd like to buy one!</p>
         
-        <div class="funko-list">
-            <!-- Example Funko Pop -->
-            <div class="funko-card">
+        <!-- DROPDOWN MENU -->
+        <div class="menu">
+            <label for="category-select">Choose Category: </label>
+            <select id="category-select" onchange="filterFunkos()">
+                <option value="all">All</option>
+                <option value="star-wars">Star Wars</option>
+                <option value="marvel">Marvel</option>
+                <option value="disney">Disney</option>
+            </select>
+        </div>
+        
+        <div class="funko-list" id="funko-list">
+            <!-- Example Funko Pop, add category as class! -->
+            <div class="funko-card star-wars">
                 <img src="https://m.media-amazon.com/images/I/71vSbfh2gCL._AC_SL1500_.jpg" alt="Darth Vader Funko Pop"/>
                 <h3>Darth Vader #01</h3>
                 <div class="price">$12</div>
                 <div>Condition: Mint in box</div>
             </div>
-            <div class="funko-card">
+            <div class="funko-card marvel">
                 <img src="https://m.media-amazon.com/images/I/81V14JykljL._AC_SL1500_.jpg" alt="Iron Man Funko Pop"/>
                 <h3>Iron Man #23</h3>
                 <div class="price">$10</div>
                 <div>Condition: Box slightly damaged</div>
             </div>
-            <!-- Add more Funkos here! -->
+            <div class="funko-card disney">
+                <img src="https://m.media-amazon.com/images/I/51AKCzk0FhL._AC_.jpg" alt="Elsa Funko Pop"/>
+                <h3>Elsa #82</h3>
+                <div class="price">$8</div>
+                <div>Condition: Opened, like new</div>
+            </div>
+            <!-- Add more Funkos with correct category class -->
+            <!-- Example: <div class="funko-card marvel">...</div> for a Marvel Pop -->
         </div>
         
         <div class="contact">
@@ -59,5 +79,26 @@
             </ol>
         </div>
     </div>
+    
+    <script>
+        function filterFunkos() {
+            var select = document.getElementById("category-select");
+            var filter = select.value;
+            var cards = document.getElementsByClassName("funko-card");
+            for (var i = 0; i < cards.length; i++) {
+                if (filter === "all") {
+                    cards[i].style.display = "block";
+                } else {
+                    if (cards[i].classList.contains(filter)) {
+                        cards[i].style.display = "block";
+                    } else {
+                        cards[i].style.display = "none";
+                    }
+                }
+            }
+        }
+        // Optional: run on page load to show all
+        filterFunkos();
+    </script>
 </body>
 </html>
