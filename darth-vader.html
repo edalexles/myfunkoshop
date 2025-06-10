@@ -56,11 +56,6 @@
 
     function updateGallery() {
       document.getElementById('main-image').src = images[current];
-      document.getElementById('img-counter').textContent = (current+1) + " / " + images.length;
-      // Update thumbs
-      document.querySelectorAll('.thumbs img').forEach((img, idx) => {
-          img.className = idx === current ? "selected" : "";
-      });
     }
 
     function nextImage() {
@@ -71,7 +66,8 @@
       current = (current - 1 + images.length) % images.length;
       updateGallery();
     }
-
+    // Load first image on page load
+    updateGallery();
     // Thumbnails (build on load)
     function setUpThumbs() {
       var thumbsDiv = document.getElementById("thumbs");
