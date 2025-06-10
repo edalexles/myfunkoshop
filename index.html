@@ -7,8 +7,6 @@
         body { font-family: Arial, sans-serif; background: #fafaff; margin: 40px;}
         h1 { color: #e65a2e; }
         .container { max-width: 900px; margin: auto;}
-        .menu { margin-bottom: 20px;}
-        label { font-weight: bold; }
         .funko-list { display: flex; flex-wrap: wrap; gap: 24px; }
         .funko-card {
             background: #fff;
@@ -18,7 +16,9 @@
             padding: 18px;
             width: 220px;
             text-align: center;
+            transition: box-shadow 0.2s;
         }
+        .funko-card:hover { box-shadow: 0 4px 18px #0002; }
         .funko-card img { width: 140px; height: 180px; object-fit: cover; border-radius: 6px; }
         .price { color: #37823b; font-weight: bold; }
         .contact {
@@ -28,84 +28,43 @@
             padding: 16px;
             border-radius: 10px;
         }
+        a { text-decoration: none; color: #111; }
+        a:hover { color: #e65a2e;}
     </style>
 </head>
 <body>
     <div class="container">
         <h1>My Funko Pop Shop</h1>
-        <p>Looking for Funko Pops at great prices? Browse and email me if you'd like to buy one!</p>
-        
-        <!-- DROPDOWN MENU -->
-        <div class="menu">
-            <label for="category-select">Choose Category: </label>
-            <select id="category-select" onchange="filterFunkos()">
-                <option value="all">All</option>
-                <option value="anime">Anime</option>
-                <option value="star-wars">Star Wars</option>
-                <option value="marvel">Marvel</option>
-                <option value="disney">Disney</option>
-            </select>
-        </div>
-        
-        <div class="funko-list" id="funko-list">
-            <!-- Example Funko Pop, add category as class! -->
-            <div class="funko-card star-wars">
-                <img src="[img]https://i.imgur.com/7p2MouF.jpeg[/img]" alt="Endor 3PACk Funko Pop"/>
-                <h3>Endor 3pack Amazon Exclusive 03</h3>
+        <p>Click a Funko Pop for more details, or email me if you'd like to buy one!</p>      
+        <div class="funko-list">
+            <!-- Funko 1 -->
+            <div class="funko-card">
+                <a href="darth-vader.html">
+                  <img src="images/darth-vader.jpg" alt="Darth Vader Funko Pop"/>
+                  <h3>Darth Vader #01</h3>
+                </a>
                 <div class="price">$12</div>
-                <div>Condition: Mint in box</div>
+                <div>Star Wars</div>
             </div>
-            <div class="funko-card marvel">
-                <img src="https://m.media-amazon.com/images/I/81V14JykljL._AC_SL1500_.jpg" alt="Iron Man Funko Pop"/>
-                <h3>Iron Man #23</h3>
+            <!-- Funko 2 -->
+            <div class="funko-card">
+                <a href="iron-man.html">
+                  <img src="images/iron-man.jpg" alt="Iron Man Funko Pop"/>
+                  <h3>Iron Man #23</h3>
+                </a>
                 <div class="price">$10</div>
-                <div>Condition: Box slightly damaged</div>
+                <div>Marvel</div>
             </div>
-            <div class="funko-card disney">
-                <img src="https://m.media-amazon.com/images/I/51AKCzk0FhL._AC_.jpg" alt="Elsa Funko Pop"/>
-                <h3>Elsa #82</h3>
-                <div class="price">$8</div>
-                <div>Condition: Opened, like new</div>
-            </div>
-             <div class="funko-card anime">
-                <img src="https://m.media-amazon.com/images/I/81V14JykljL._AC_SL1500_.jpg" alt="Iron Man Funko Pop"/>
-                <h3>Luffy #1003</h3>
-                <div class="price">$10</div>
-                <div>Condition: Good condition</div>
-            </div>
-            <!-- Add more Funkos with correct category class -->
-            <!-- Example: <div class="funko-card marvel">...</div> for a Marvel Pop -->
-        </div>
-        
+            <!-- Add more cards here -->
+        </div>    
         <div class="contact">
             <h2>How to Buy</h2>
             <ol>
                 <li>Email me at <a href="mailto:your.email@example.com">your.email@example.com</a> with the Pop you want.</li>
-                <li>I’ll confirm it's available & send payment details (PayPal/venmo etc).</li>
+                <li>I’ll confirm it's available & send payment details.</li>
                 <li>Once paid, I ship within 2 days. Simple!</li>
             </ol>
         </div>
     </div>
-    
-    <script>
-        function filterFunkos() {
-            var select = document.getElementById("category-select");
-            var filter = select.value;
-            var cards = document.getElementsByClassName("funko-card");
-            for (var i = 0; i < cards.length; i++) {
-                if (filter === "all") {
-                    cards[i].style.display = "block";
-                } else {
-                    if (cards[i].classList.contains(filter)) {
-                        cards[i].style.display = "block";
-                    } else {
-                        cards[i].style.display = "none";
-                    }
-                }
-            }
-        }
-        // Optional: run on page load to show all
-        filterFunkos();
-    </script>
 </body>
 </html>
