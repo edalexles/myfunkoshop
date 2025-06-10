@@ -18,6 +18,25 @@
     a:hover { text-decoration: underline;}
     .back { margin-bottom: 30px; display: block;}
     .box { background: #fff; border: 1px solid #ddd; padding: 18px; border-radius: 10px;}
+    /* Zoom modal style */
+    #zoom-modal {display:none;position:fixed;top:0;left:0;width:100vw;height:100vh;
+      background:rgba(0,0,0,0.6);justify-content:center;align-items:center;z-index:9999;}
+    #zoom-image { max-width:90vw; max-height:90vh; border-radius:16px; box-shadow:0 8px 36px #0008; }
+    /* Close button for modal */
+    #zoom-close-btn {
+      position: absolute;
+      top: 20px; right: 30px;
+      font-size:2em;
+      color:white;
+      background: none;
+      border: none;
+      cursor: pointer;
+      z-index: 10001;
+      transition: color 0.1s;
+    }
+    #zoom-close-btn:hover {
+      color: #e65a2e;
+    }
   </style>
 </head>
 <body>
@@ -43,6 +62,7 @@
       <p>Email <a href="mailto:your.email@example.com">your.email@example.com</a> if interested.</p>
     </div>
   </div>
+
   <script>
     var images = [
       "https://i.imgur.com/7p2MouF.jpeg",
@@ -99,6 +119,12 @@
         }
     };
 
+    // Close modal when clicking the close button (✕)
+    document.getElementById('zoom-close-btn')?.addEventListener('click', function () {
+      document.getElementById('zoom-modal').style.display = 'none';
+    });
+
+    // Close modal with ESC
     document.addEventListener('keydown', function(e) {
         if (e.key === "Escape") {
             document.getElementById('zoom-modal').style.display = 'none';
@@ -109,8 +135,9 @@
 
   <!-- Zoom modal -->
   <div id="zoom-modal" style="display:none;position:fixed;top:0;left:0;width:100vw;height:100vh;background:rgba(0,0,0,0.6);justify-content:center;align-items:center;z-index:9999;">
+    <button id="zoom-close-btn" aria-label="Close" title="Close (ESC)">&#10006;</button>
     <img id="zoom-image" src="" style="max-width:90vw;max-height:90vh;border-radius:16px;box-shadow:0 8px 36px #0008;" />
   </div>
-  
+
 </body>
 </html>
