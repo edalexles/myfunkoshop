@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>My Funko Pop Shop</title>
+    <style>
+        body { font-family: Arial, sans-serif; background: #fafaff; margin: 40px;}
+        h1 { color: #e65a2e; }
+        .container { max-width: 900px; margin: auto;}
+        .funko-list { display: flex; flex-wrap: wrap; gap: 24px; }
+        .funko-card {
+            background: #fff;
+            border: 1px solid #ddd;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px #0001;
+            padding: 18px;
+            width: 220px;
+            text-align: center;
+        }
+        .funko-card img { width: 140px; height: 180px; object-fit: cover; border-radius: 6px; }
+        .price { color: #37823b; font-weight: bold; }
+        .contact {
+            border: 1px solid #fe9e91;
+            background: #ffedea;
+            margin-top: 40px;
+            padding: 16px;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>My Funko Pop Shop</h1>
+        <p>Looking for Funko Pops at great prices? Browse and email me if you'd like to buy one!</p>
+        
+        <div class="funko-list">
+            <!-- Example Funko Pop -->
+            <div class="funko-card">
+                <img src="https://m.media-amazon.com/images/I/71vSbfh2gCL._AC_SL1500_.jpg" alt="Darth Vader Funko Pop"/>
+                <h3>Darth Vader #01</h3>
+                <div class="price">$12</div>
+                <div>Condition: Mint in box</div>
+            </div>
+            <div class="funko-card">
+                <img src="https://m.media-amazon.com/images/I/81V14JykljL._AC_SL1500_.jpg" alt="Iron Man Funko Pop"/>
+                <h3>Iron Man #23</h3>
+                <div class="price">$10</div>
+                <div>Condition: Box slightly damaged</div>
+            </div>
+            <!-- Add more Funkos here! -->
+        </div>
+        
+        <div class="contact">
+            <h2>How to Buy</h2>
+            <ol>
+                <li>Email me at <a href="mailto:your.email@example.com">your.email@example.com</a> with the Pop you want.</li>
+                <li>I’ll confirm it's available & send payment details (PayPal/venmo etc).</li>
+                <li>Once paid, I ship within 2 days. Simple!</li>
+            </ol>
+        </div>
+    </div>
+</body>
+</html>
