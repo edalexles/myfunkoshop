@@ -3,29 +3,169 @@
 <head>
   <meta charset="UTF-8">
   <title>Endor Three Pack Amazon Eclusive | My Funko Pop Shop</title>
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Google Fonts for extra modern look -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;400&display=swap" rel="stylesheet">
   <style>
-    body { font-family: Arial, sans-serif; background: #fafaff; margin: 40px; }
-    .container { max-width: 600px; margin: auto; text-align: center; }
-    .gallery-img { width: 300px; height: 380px; border-radius: 12px; object-fit: cover; cursor: zoom-in; }
-    .gallery-nav { margin-top: 10px; margin-bottom: 20px;}
-    .gallery-nav button { font-size: 1.2em; padding: 4px 18px; border-radius: 6px; border: 1px solid #aaa; margin: 0 8px; cursor: pointer; background: #fff; transition: background 0.2s;}
-    .gallery-nav button:hover { background: #efefef; }
-    .thumbs {margin-top:10px;}
-    .thumbs img {width: 50px; height: 60px; object-fit: cover; border-radius: 5px; margin: 0 2px; border: 2px solid #fff; cursor: pointer; transition: border 0.15s;}
-    .thumbs img.selected { border: 2px solid #e65a2e; }
-    .price { color: #37823b; font-weight: bold; font-size: 1.3em; margin: 16px 0; }
-    a { color: #e65a2e; text-decoration: none;}
-    a:hover { text-decoration: underline;}
-    .back { margin-bottom: 30px; display: block;}
-    .box { background: #fff; border: 1px solid #ddd; padding: 18px; border-radius: 10px;}
-    #zoom-modal {display:none;position:fixed;top:0;left:0;width:100vw;height:100vh;
-      background:rgba(0,0,0,0.6);justify-content:center;align-items:center;z-index:9999;}
-    #zoom-image { max-width:90vw; max-height:90vh; border-radius:16px; box-shadow:0 8px 36px #0008; }
-    #zoom-close-btn {
-      position: absolute; top: 20px; right: 30px; font-size:2em; color:white;
-      background: none; border: none; cursor: pointer; z-index: 10001; transition: color 0.1s;
+    body {
+      font-family: 'Montserrat', Arial, sans-serif;
+      background: linear-gradient(135deg, #f8f8fa 0%, #e9ebf9 100%);
+      margin: 0; padding: 0; 
+      min-height: 100vh;
     }
-    #zoom-close-btn:hover { color: #e65a2e; }
+    .container {
+      max-width: 700px;
+      margin: 48px auto 24px auto;
+      padding: 20px;
+      background: #fff;
+      border-radius: 20px;
+      box-shadow: 0 8px 32px #0001, 0 0.5px 2px #8883;
+    }
+    h1 {
+      color: #232946;
+      margin-top: 0.4em;
+      letter-spacing: -1px;
+      font-size: 2.3em;
+      margin-bottom: 8px;
+    }
+    .box { 
+      background: #f3f6fd;
+      border-radius: 16px;
+      box-shadow: 0 2px 12px #e1e1f8;
+      padding: 24px 18px 18px 18px;
+      margin-bottom: 0;
+    }
+    .gallery-img {
+      width: 100%;
+      max-width: 350px;
+      height: 380px;
+      border-radius: 14px;
+      object-fit: cover;
+      background: #e9e9ef;
+      box-shadow: 0 2px 14px #cfd2ed66;
+      margin-bottom: 14px;
+      cursor: zoom-in;
+      transition: box-shadow 0.22s;
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .gallery-img:hover { box-shadow: 0 8px 28px #153ee333;}
+    .gallery-nav {
+      margin-top: 0;
+      margin-bottom: 18px;
+      display: flex; 
+      align-items: center; 
+      justify-content: center;
+      gap: 12px;
+    }
+    .gallery-nav button {
+      font-size: 1.1em;
+      padding: 7px 22px;
+      border-radius: 9px;
+      border: none;
+      cursor: pointer;
+      background: linear-gradient(90deg,#e7eefd,#dde7fb);
+      color: #232946;
+      font-weight: 700;
+      letter-spacing: 1px;
+      box-shadow: 0 1px 6px #0001;
+      transition: background .13s, color .2s;
+    }
+    .gallery-nav button:hover {
+      background: #232946; color: #fff;
+    }
+    #img-counter {
+      font-size: 1.12em;
+      color: #61667c;
+      padding: 0 9px;
+      font-weight: bold;
+    }
+    .thumbs {
+      margin-top: 13px;
+      margin-bottom: 10px;
+      display: flex;
+      justify-content: center;
+    }
+    .thumbs img {
+      width: 54px;
+      height: 56px;
+      object-fit: cover;
+      border-radius: 6px;
+      margin: 0 2px;
+      border: 2.5px solid #fff;
+      background: #f4f4fa;
+      box-shadow: 0 0.5px 3px #ccc4;
+      cursor: pointer;
+      transition: border 0.19s, box-shadow 0.18s;
+    }
+    .thumbs img.selected {
+      border: 2.5px solid #3058ef;
+      box-shadow: 0 2px 10px #40589218;
+    }
+    .price {
+      color: #3058ef;
+      font-weight: bold;
+      font-size: 1.7em;
+      margin: 16px 0 9px 0;
+      letter-spacing: -1px;
+    }
+    .info-list {
+      list-style: none;
+      padding: 0;
+      font-size: 1.09em;
+      color: #444965;
+      margin-bottom: 12px;
+    }
+    .info-list li { margin-bottom: 7px; }
+    .desc {
+      color: #33385e;
+      background: #eff3fc;
+      border-radius: 8px;
+      padding: 13px 12px;
+      margin-bottom: 18px;
+    }
+    .contact {
+      color: #232946;
+      margin-top: 19px;
+      font-size: 1.16em;
+    }
+    a { color: #3058ef; text-decoration: underline; }
+    a:hover { color: #e65a2e;}
+    .back {
+      margin-bottom: 18px; display: block; 
+      font-size: 1.1em;
+      color: #6d7384;
+      text-decoration: none;
+      transition: color 0.13s;
+    }
+    .back:hover { color: #3058ef;}
+    /* Zoom modal styles */
+    #zoom-modal {
+      display: none; position: fixed; top: 0; left: 0; width: 100vw; height: 100vh;
+      background:rgba(37, 48, 71, 0.84); justify-content:center; align-items:center; z-index:9999;
+      animation: fadeModal .25s;
+    }
+    @keyframes fadeModal { from {background:rgba(37,48,71,0);} to {background:rgba(37,48,71,0.84);} }
+    #zoom-image { 
+      max-width:94vw; max-height:92vh; border-radius:19px; 
+      box-shadow:0 8px 38px #0007; border: 7px solid #fff;
+    }
+    #zoom-close-btn {
+      position: absolute; top: 22px; right: 38px; font-size:2.5em; color:#fff;
+      background: none; border: none; cursor: pointer; z-index: 10001; transition: color 0.1s;
+      font-family: 'Montserrat', Arial, sans-serif;
+      opacity: 0.86;
+    }
+    #zoom-close-btn:hover { color: #3058ef; opacity: 1; }
+    @media (max-width: 700px) {
+      .container { max-width:97vw; padding:12px!important; }
+      .box { padding:12px!important; }
+      .gallery-img, #zoom-image { height:auto; max-height:65vw; }
+    }
+    @media (max-width: 400px) {
+      .gallery-img, #zoom-image { max-width:94vw; max-height:44vw;}
+    }
   </style>
 </head>
 <body>
