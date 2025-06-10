@@ -44,18 +44,38 @@
     </div>
   </div>
   <script>
-    // Replace these with your image paths!
+    // Use correct comma separation!
     var images = [
       "IMG_20231221_165946.jpg",
       "IMG_20231221_165949.jpg",
-      "IMG_20231221_165952.jpg"
-      "IMG_20231221_165955.jpg"
+      "IMG_20231221_165952.jpg",
+      "IMG_20231221_165955.jpg",
       "IMG_20231221_165958.jpg"
     ];
     var current = 0;
 
+    // Setup thumbnails (called once)
+    function setUpThumbs() {
+      var thumbsDiv = document.getElementById("thumbs");
+      thumbsDiv.innerHTML = '';
+      images.forEach(function(img, idx){
+        var el = document.createElement("img");
+        el.src = img;
+        el.className = idx === current ? "selected" : "";
+        el.onclick = function(){ current=idx; updateGallery(); };
+        thumbsDiv.appendChild(el);
+      });
+    }
+
+    // Update main image and counter and thumb highlighting
     function updateGallery() {
       document.getElementById('main-image').src = images[current];
+      document.getElementById('img-counter').textContent = (current+1) + " / " + images.length;
+      // Update thumbnail highlighting
+      var thumbImgs = document.querySelectorAll('.thumbs img');
+      thumbImgs.forEach(function(img, idx) {
+        img.className = idx === current ? "selected" : "";
+      });
     }
 
     function nextImage() {
@@ -65,20 +85,6 @@
     function prevImage() {
       current = (current - 1 + images.length) % images.length;
       updateGallery();
-    }
-    // Load first image on page load
-    updateGallery();
-    // Thumbnails (build on load)
-    function setUpThumbs() {
-      var thumbsDiv = document.getElementById("thumbs");
-      thumbsDiv.innerHTML = '';
-      images.forEach(function(img, idx){
-        var el = document.createElement("img");
-        el.src = img;
-        if(idx === current) el.className = "selected";
-        el.onclick = function(){ current=idx; updateGallery(); };
-        thumbsDiv.appendChild(el);
-      });
     }
 
     setUpThumbs();
